@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
-        //viewmodel
         val viewModel = ViewModelProvider(this).get(DialogViewModel::class.java)
-
 
         startButton = findViewById<Button>(R.id.startButton)
 
@@ -25,17 +23,12 @@ class MainActivity : AppCompatActivity() {
             transaction.add(R.id.container, GameFragment.newInstance(), "game")
             transaction.addToBackStack(null)
             transaction.commit()
-
-
         }
 
         var pickerButton = findViewById<Button>(R.id.difficultyButton)
-        //Number picker
 
         pickerButton.setOnClickListener {
-            // build alert dialog
             NumberPickerDialogFragment().show(supportFragmentManager, "NumberDialogPicker")
-            //listen back for the result of the intent
             //TODO - change color of space in the notification bar
         }
     }

@@ -17,7 +17,7 @@ class NumberPickerDialogFragment: DialogFragment() {
     val pickerValues = arrayOf("5", "10", "20", "50", "100")
 
     companion object {
-        var INPUT_NUMBER = "999999"
+        var INPUT_NUMBER = ""
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

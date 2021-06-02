@@ -33,8 +33,6 @@ class GameFragment : Fragment() {
 
     //progress bar
     private lateinit var progressSpinner : ProgressBar
-    //get a random
-    //rxview
     
     //define lifecycle of the coroutine scope
     //if children fail, parent is notified and it will cancel the other children
@@ -46,7 +44,6 @@ class GameFragment : Fragment() {
 
     private val viewModel: DialogViewModel by activityViewModels()
 
-    //to do make this less stupipid?
     private lateinit var currentQuestionText : TextView
 
     var userSelectionID = ""
@@ -70,15 +67,14 @@ class GameFragment : Fragment() {
             viewModel.setItem("5")
         }
         currentQuestionText.text = "$currentQuestion / ${viewModel.getSelectedNumber()}"
-        //to do change this fun name
-        getAdviceProperty()
+        getProfilesData()
     }
 
     companion object {
         fun newInstance(): GameFragment = GameFragment()
     }
 
-    private fun getAdviceProperty(){
+    private fun getProfilesData(){
         coroutineScope.launch {
             var getProperty = ServiceBuilder.NameGameAPI.retrofitService.getProperty()
             try {

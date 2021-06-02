@@ -17,7 +17,6 @@ class EndGameDialogFragment: DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.setCanceledOnTouchOutside(false)
         layoutView = inflater.inflate(R.layout.end_screen_dialog, container, false);
-        //getDialog()!!.getWindow()?.setBackgroundDrawableResource(R.drawable.round_corner);
 
         var restartButton = layoutView.findViewById<Button>(R.id.restartButton)
 
@@ -35,7 +34,6 @@ class EndGameDialogFragment: DialogFragment() {
     }
 
     fun restartGame(){
-        println("hey im going to retstart")
         val fragment: Fragment? = getFragmentManager()?.findFragmentByTag("game")
         if (fragment != null) getFragmentManager()?.beginTransaction()?.remove(fragment)
             ?.commit()
